@@ -36,13 +36,14 @@ public class Main {
             int p = Integer.parseInt(st.nextToken()); //이동칸수
             while (!now.isEmpty()) { // 모든 칸 이동
                 int[] xy = now.pop();
-                int nx = (xy[0] + dx[d] * p) % n; //d방향 p칸만큼 이동 - 무한맵
+                int nx = (xy[0] + dx[d] * p) % n; // d방향 p칸만큼 이동 - 무한맵
                 int ny = (xy[1] + dy[d] * p) % n;
+
                 if (nx < 0) {
-                    nx = 5 + nx;
+                    nx += n;
                 }
                 if (ny < 0) {
-                    ny = 5 + ny;
+                    ny += n;
                 }
                 graph[nx][ny]++; //영양제땅++
                 next.add(new int[]{nx, ny}); //이동 후 땅에 푸시
